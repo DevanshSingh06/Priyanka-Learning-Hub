@@ -1,0 +1,84 @@
+.page {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 32px 18px;
+  background: var(--paper);
+}
+
+.panel {
+  width: min(100%, 460px);
+  padding: clamp(26px, 6vw, 42px);
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.dashboardPage {
+  display: block;
+}
+
+.dashboardPanel {
+  width: min(100%, 1280px);
+  margin-inline: auto;
+}
+
+.heading {
+  margin: 15px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.description {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.submit:disabled,
+.logout:disabled {
+  cursor: wait;
+  opacity: .65;
+  transform: none;
+}
+
+.dashboardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.dashboardHeader .heading {
+  margin-top: 12px;
+}
+
+.logout {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.status {
+  margin: 18px 0 0;
+}
+
+@media (max-width: 480px) {
+  .dashboardHeader {
+    flex-direction: column;
+  }
+
+  .logout {
+    width: 100%;
+  }
+}

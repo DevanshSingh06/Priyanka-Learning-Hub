@@ -367,6 +367,7 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .resource-page-section { padding-block: 52px 90px; background: var(--paper); }
 .resource-explorer { min-height: 360px; }
 .filter-bar { display: grid; grid-template-columns: minmax(200px, 1fr) 190px 210px; gap: 12px; padding: 14px; border: 1px solid var(--line); background: var(--white); }
+.notes-filter-bar { grid-template-columns: minmax(200px, 1fr) 170px 190px 210px; }
 .search-field { display: flex; min-height: 46px; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid var(--line); color: var(--muted); }
 .search-field input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 12px; }
 .search-field input:focus-visible { outline: 0; }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, BookOpenCheck, Brain, ClipboardCheck, FileText, HeartHandshake, Play } from "lucide-react";
 import { siteConfig } from "@/lib/config/site";
+import type { NoteResource } from "@/lib/data/public-content";
 import { instagramReels, lessonResources } from "@/lib/data/public-content";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
@@ -49,11 +50,14 @@ export function FreeLearningSection() {
   </div></section>;
 }
 
-export function NotesSection() {
+export function NotesSection({ resources, hasLoadError = false }: { resources: NoteResource[]; hasLoadError?: boolean }) {
   return <section className="section notes-section" id="notes"><div className="container notes-layout"><div>
     <SectionHeading kicker="Notes corner" title="A place for focused study." text="Study resources are being prepared. Check back soon for notes, revision material and important questions." />
     <Link className="button button-light" href="/notes">Explore all notes <ArrowRight size={16} /></Link>
-  </div><span className="notes-art" aria-hidden="true"><FileText size={44} strokeWidth={1.2} /></span></div></section>;
+  </div>{!hasLoadError && resources.length > 0 ? <div className="note-list">{resources.slice(0, 3).map((resource) => <Link className="note-row" href="/notes" key={resource.id}>
+    <div className="note-icon" aria-hidden="true"><FileText size={19} /></div>
+    <div><strong>{resource.title}</strong><span>{resource.classLevel} · {resource.subject} · {resource.resourceType}</span></div>
+  </Link>)}</div> : <span className="notes-art" aria-hidden="true"><FileText size={44} strokeWidth={1.2} /></span>}</div></section>;
 }
 
 export function AboutTeacherSection() {

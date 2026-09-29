@@ -22,6 +22,13 @@ The ignored local `.env.local` contains the verified public contact/social detai
 - `/gallery`: Gallery empty state, with category/lightbox support ready for real items
 - `/contact`: Configured contact links and WhatsApp enquiry form
 
+## Teacher access and Supabase
+
+- `/teacher/login`: Teacher sign-in using email and password. Public signup and OAuth sign-in are not available.
+- `/teacher/dashboard`: Protected dashboard placeholder. It requires an authenticated Supabase user and redirects unauthenticated visitors to the login page.
+- Supabase browser and server-side SSR clients are implemented, with a dashboard-scoped Next.js proxy for session refresh. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` using the placeholders in `.env.example`.
+- The Supabase project has a `public.resources` table and a private `resources` Storage bucket. Application-side resource queries, management UI, and uploads have not been implemented yet.
+
 ## Structure
 
 - `app/`: public route entry points, metadata, and global styles.
@@ -35,4 +42,4 @@ Verified qualifications, experience, subjects, boards, delivery modes, locality,
 
 ## Scope
 
-This stage contains public frontend pages only. Supabase, authentication, admin tools, database/storage, and enquiry delivery are intentionally not implemented.
+The public website routes listed above remain unchanged. Teacher email/password authentication and the protected dashboard are implemented separately from the public site. The database and Storage infrastructure exists in Supabase, but connecting the application to resource data and implementing resource management remain future work.

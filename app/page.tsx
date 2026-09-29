@@ -1,14 +1,18 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { connection } from "next/server";
 import teacherPhoto from "@/images/priyanka-singla.png";
 import { AboutTeacherSection, ClassesSection, FreeLearningSection, InstagramSection, NotesSection, WhySection } from "@/components/home/home-sections";
 import { PublicPage } from "@/components/layout/public-page";
 import { WhatsAppEnquiryForm } from "@/components/public/contact-form";
 import { siteConfig } from "@/lib/config/site";
+import { getPublishedResources } from "@/lib/data/published-notes";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
-export default function Home() {
+export default async function Home() {
+  await connection();
+  const { resources, hasLoadError } = await getPublishedResources({ limit: 3, signFileUrls: false });
   const demoUrl = buildWhatsAppUrl({ intent: "demo" });
   const phoneUrl = siteConfig.phoneNumber ? `tel:${siteConfig.phoneNumber.replace(/[^\d+]/g, "")}` : null;
   const demoHref = demoUrl || phoneUrl || "/contact";
@@ -50,7 +54,7 @@ export default function Home() {
       <WhySection />
       <ClassesSection />
       <FreeLearningSection />
-      <NotesSection />
+      <NotesSection resources={resources} hasLoadError={hasLoadError} />
       <AboutTeacherSection />
       <section className="cta-section" id="contact">
         <div className="container cta-layout">
