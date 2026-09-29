@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Priyanka Learning Hub
 
-## Getting Started
+Responsive coaching institute website for Class 9 and Class 10 Mathematics and Social Science students, with CBSE and ICSE support in Ahmadgarh, Punjab. Built with Next.js App Router, React, TypeScript, Tailwind CSS v4, and Lucide icons.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The ignored local `.env.local` contains the verified public contact/social details; the site URL and map URL remain unset. `.env.example` is a blank template. Enquiry details are placed in a WhatsApp message only after a visitor submits the form; the website does not store them. Do not place secrets in `NEXT_PUBLIC_*` variables.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Public routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/`: Home
+- `/about`: Priyanka Singla profile and teaching approach
+- `/classes`: Class 9 and Class 10 learning options
+- `/notes`: Study-resource browsing and empty state
+- `/learning`: Free-learning browsing and empty state
+- `/results`: Verified results and feedback empty state
+- `/gallery`: Gallery empty state, with category/lightbox support ready for real items
+- `/contact`: Configured contact links and WhatsApp enquiry form
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/`: public route entry points, metadata, and global styles.
+- `components/layout/`: shared navigation, footer, page shell, and CTA.
+- `components/home/`: homepage sections.
+- `components/public/`: resource filters, WhatsApp enquiry form, and gallery interactions.
+- `lib/config/`: centralized public site settings.
+- `lib/data/`: frontend content models and clearly marked placeholders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Verified qualifications, experience, subjects, boards, delivery modes, locality, and contact/social links are configured. Results, testimonials, gallery content, batch timings, and notes remain intentionally unpublished. Video cards use neutral titles where no verified title was supplied.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scope
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This stage contains public frontend pages only. Supabase, authentication, admin tools, database/storage, and enquiry delivery are intentionally not implemented.
