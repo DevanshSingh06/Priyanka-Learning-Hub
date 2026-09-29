@@ -51,8 +51,14 @@ export function FreeLearningSection() {
 }
 
 export function NotesSection({ resources, hasLoadError = false }: { resources: NoteResource[]; hasLoadError?: boolean }) {
+  const notesDescription = hasLoadError
+    ? "Study resources are temporarily unavailable. Please try again shortly."
+    : resources.length > 0
+      ? "Explore the latest published study resources. Select a resource to browse the full Notes Corner."
+      : "No study resources are available right now. Check back soon for notes, revision material and important questions.";
+
   return <section className="section notes-section" id="notes"><div className="container notes-layout"><div>
-    <SectionHeading kicker="Notes corner" title="A place for focused study." text="Study resources are being prepared. Check back soon for notes, revision material and important questions." />
+    <SectionHeading kicker="Notes corner" title="A place for focused study." text={notesDescription} />
     <Link className="button button-light" href="/notes">Explore all notes <ArrowRight size={16} /></Link>
   </div>{!hasLoadError && resources.length > 0 ? <div className="note-list">{resources.slice(0, 3).map((resource) => <Link className="note-row" href="/notes" key={resource.id}>
     <div className="note-icon" aria-hidden="true"><FileText size={19} /></div>
