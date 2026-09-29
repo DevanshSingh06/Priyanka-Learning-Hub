@@ -1,3 +1,5 @@
+import { classLevels, subjects } from "@/lib/config/content";
+
 export const siteConfig = {
   name: "Priyanka Learning Hub",
   teacherName: "Priyanka Singla",
@@ -9,8 +11,8 @@ export const siteConfig = {
   email: process.env.NEXT_PUBLIC_EMAIL || "",
   address: process.env.NEXT_PUBLIC_ADDRESS || "",
   mapsUrl: process.env.NEXT_PUBLIC_MAPS_URL || "",
-  classes: ["Class 9", "Class 10"],
-  subjects: ["Mathematics", "Social Science"],
+  classes: classLevels,
+  subjects,
   boards: ["CBSE", "ICSE"],
   modes: ["Online", "Offline"],
   experience: "18+ years",

@@ -3,23 +3,24 @@
 import { useState } from "react";
 import { Download, ExternalLink, FileText, Play, Search } from "lucide-react";
 import { EmptyState } from "@/components/layout/public-page";
-import { lessonResources, noteResources } from "@/lib/data/public-content";
+import { classLevels } from "@/lib/config/content";
+import { lessonResources, type NoteResource } from "@/lib/data/public-content";
 
-const classOptions = ["All classes", "Class 9", "Class 10"];
+const classOptions = ["All classes", ...classLevels];
 
-export function NotesExplorer() {
+export function NotesExplorer({ resources }: { resources: NoteResource[] }) {
   const [classFilter, setClassFilter] = useState("All classes");
   const [subjectFilter, setSubjectFilter] = useState("All subjects");
   const [query, setQuery] = useState("");
-  const subjects = Array.from(new Set(noteResources.map((note) => note.subject)));
-  const visibleNotes = noteResources.filter((note) => {
+  const subjects = Array.from(new Set(resources.map((note) => note.subject)));
+  const visibleNotes = resources.filter((note) => {
     const matchesClass = classFilter === "All classes" || note.classLevel === classFilter;
     const matchesSubject = subjectFilter === "All subjects" || note.subject === subjectFilter;
     const matchesQuery = `${note.title} ${note.chapter} ${note.subject}`.toLowerCase().includes(query.toLowerCase());
     return matchesClass && matchesSubject && matchesQuery;
   });
 
-  if (noteResources.length === 0) {
+  if (resources.length === 0) {
     return <EmptyState title="Study resources are being prepared" message="Check back soon for notes, revision material and important questions." />;
   }
 
@@ -31,7 +32,7 @@ export function NotesExplorer() {
     </div>
     <p className="resource-count" aria-live="polite">{visibleNotes.length} {visibleNotes.length === 1 ? "resource" : "resources"}</p>
     {visibleNotes.length ? <div className="resource-grid">{visibleNotes.map((note) => <article className="resource-card" key={note.id}>
-      <div className="resource-card-top"><span className="resource-icon"><FileText size={20} /></span><span className="resource-kind">PDF resource</span></div>
+      <div className="resource-card-top"><span className="resource-icon"><FileText size={20} /></span><span className="resource-kind">{note.resourceType}</span></div>
       <p className="resource-eyebrow">{note.classLevel} <span>/</span> {note.subject}</p>
       <h2>{note.title}</h2>
       <p className="resource-description">{note.chapter}</p>

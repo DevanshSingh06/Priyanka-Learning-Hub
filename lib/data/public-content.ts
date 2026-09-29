@@ -1,4 +1,4 @@
-export type ClassLevel = "Class 9" | "Class 10";
+import type { ClassLevel, ResourceType, Subject } from "@/lib/config/content";
 
 export type SubjectResource = {
   id: string;
@@ -9,7 +9,8 @@ export type SubjectResource = {
 export type NoteResource = {
   id: string;
   classLevel: ClassLevel;
-  subject: string;
+  subject: Subject;
+  resourceType: ResourceType;
   chapter: string;
   title: string;
   uploadedAt: string;
@@ -19,7 +20,7 @@ export type NoteResource = {
 export type LessonResource = {
   id: string;
   classLevel?: ClassLevel;
-  subject?: string;
+  subject?: Subject;
   topic?: string;
   title: string;
   youtubeUrl: string | null;

@@ -25,10 +25,11 @@ export function WhySection() {
 export function ClassesSection() {
   return <section className="section classes-section" id="classes"><div className="container">
     <SectionHeading kicker="Find your starting point" title="Learning for the next big step." text="Mathematics and Social Science learning support for Classes 9 and 10." />
-    <div className="class-grid">{[9, 10].map((classNumber) => {
-      const whatsappUrl = buildWhatsAppUrl({ classLevel: `Class ${classNumber}` });
+    <div className="class-grid">{siteConfig.classes.map((classLevel) => {
+      const classNumber = classLevel.replace("Class ", "");
+      const whatsappUrl = buildWhatsAppUrl({ classLevel });
       const phoneHref = siteConfig.phoneNumber ? `tel:${siteConfig.phoneNumber.replace(/[^\d+]/g, "")}` : "/contact";
-        return <article className="class-card" key={classNumber}><div className="class-card-top"><span className="class-number">{classNumber}</span></div><h3>Class {classNumber}</h3><p>Explore the class page for learning support and study resources.</p>{whatsappUrl ? <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Ask about Class {classNumber} <ArrowRight size={15} /></a> : <Link className="text-link" href={phoneHref}>Ask about Class {classNumber} <ArrowRight size={15} /></Link>}</article>;
+        return <article className="class-card" key={classLevel}><div className="class-card-top"><span className="class-number">{classNumber}</span></div><h3>{classLevel}</h3><p>Explore the class page for learning support and study resources.</p>{whatsappUrl ? <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">Ask about {classLevel} <ArrowRight size={15} /></a> : <Link className="text-link" href={phoneHref}>Ask about {classLevel} <ArrowRight size={15} /></Link>}</article>;
     })}</div>
   </div></section>;
 }
