@@ -1,12 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Download, ExternalLink, FileText, Play, Search } from "lucide-react";
 import { EmptyState } from "@/components/layout/public-page";
 import { classLevels, resourceTypes } from "@/lib/config/content";
 import { lessonResources, type NoteResource } from "@/lib/data/public-content";
 
 const classOptions = ["All classes", ...classLevels];
+
+function getYouTubeVideoId(youtubeUrl: string | null) {
+  if (!youtubeUrl) return null;
+
+  try {
+    const url = new URL(youtubeUrl);
+    const videoId = url.hostname === "youtu.be" ? url.pathname.slice(1) : url.searchParams.get("v");
+    return videoId && /^[\w-]{11}$/.test(videoId) ? videoId : null;
+  } catch {
+    return null;
+  }
+}
 
 export function NotesExplorer({ resources, hasLoadError = false }: { resources: NoteResource[]; hasLoadError?: boolean }) {
   const [classFilter, setClassFilter] = useState("All classes");
@@ -68,18 +81,23 @@ export function LearningExplorer() {
   }
 
   return <div className="resource-explorer">
-    {(availableClasses.length > 0 || subjects.length > 0) && <div className="filter-bar" aria-label="Filter video lessons">
+    <div className="filter-bar" aria-label="Filter video lessons">
       <label className="search-field"><Search size={17} /><span className="visually-hidden">Search lessons</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search lessons or topics" /></label>
       {availableClasses.length > 0 && <label className="filter-field"><span>Class</span><select value={classFilter} onChange={(event) => setClassFilter(event.target.value)}>{classOptions.map((option) => <option key={option}>{option}</option>)}</select></label>}
       {subjects.length > 0 && <label className="filter-field"><span>Subject</span><select value={subjectFilter} onChange={(event) => setSubjectFilter(event.target.value)}><option>All subjects</option>{subjects.map((subject) => <option key={subject}>{subject}</option>)}</select></label>}
-    </div>}
+    </div>
     <p className="resource-count" aria-live="polite">{visibleLessons.length} {visibleLessons.length === 1 ? "lesson" : "lessons"}</p>
-    {visibleLessons.length ? <div className="resource-grid video-resource-grid">{visibleLessons.map((lesson) => <article className="resource-card video-resource-card" key={lesson.id}>
-      <div className="lesson-thumbnail"><span className="play-button"><Play size={17} fill="currentColor" /></span></div>
+    {visibleLessons.length ? <div className="resource-grid video-resource-grid">{visibleLessons.map((lesson) => {
+      const videoId = getYouTubeVideoId(lesson.youtubeUrl);
+      return <article className="resource-card video-resource-card" key={lesson.id}>
+      {lesson.youtubeUrl && videoId ? <a className="lesson-thumbnail" href={lesson.youtubeUrl} target="_blank" rel="noreferrer" aria-label={lesson.title}>
+        <Image src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} alt={`Thumbnail for ${lesson.title}`} width={480} height={360} unoptimized />
+        <span className="play-button" aria-hidden="true"><Play size={17} fill="currentColor" /></span>
+      </a> : <div className="lesson-thumbnail"><span className="play-button"><Play size={17} fill="currentColor" /></span></div>}
       {(lesson.classLevel || lesson.subject) && <p className="resource-eyebrow">{[lesson.classLevel, lesson.subject].filter(Boolean).join(" / ")}</p>}
       <h2>{lesson.title}</h2>
       {lesson.topic && <p className="resource-description">{lesson.topic}</p>}
       {lesson.youtubeUrl && <div className="resource-actions"><a className="button button-light" href={lesson.youtubeUrl} target="_blank" rel="noreferrer">Watch Lesson on YouTube <ExternalLink size={15} /></a></div>}
-    </article>)}</div> : <EmptyState title="No matching lessons" message="Try another class, subject, or search term." />}
+    </article>})}</div> : <EmptyState title="No matching lessons" message="Try another class, subject, or search term." />}
   </div>;
 }

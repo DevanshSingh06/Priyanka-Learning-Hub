@@ -32,7 +32,8 @@ export const noteResources: NoteResource[] = [];
 
 export const lessonResources: LessonResource[] = [
   { id: "youtube-lesson-1", title: "Watch Lesson on YouTube", youtubeUrl: "https://youtu.be/QV6dbnW-CEI" },
-  { id: "youtube-lesson-2", title: "Watch Lesson on YouTube", youtubeUrl: "https://youtu.be/892gHzMkDzA" },
+  { id: "youtube-lesson-2", title: "Watch Lesson on YouTube", youtubeUrl: "https://youtu.be/iv5yFmB7bbs?si=mZwF5PxebsRRMMcp" },
+  { id: "youtube-lesson-3", title: "Forest and Wildlife Resources | Class 10 Geography Chapter 2 | Complete Chapter | CBSE 2026-27", youtubeUrl: "https://youtu.be/-NjdkC3qEtk?si=nPVnc8rvkf_10X7x" },
 ];
 
 export const instagramReels = [
