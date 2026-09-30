@@ -7,7 +7,7 @@ import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
 const footerLinks = [
   { title: "Explore", links: [["About", "/about"], ["Classes", "/classes"], ["Results", "/results"], ["Gallery", "/gallery"]] },
-  { title: "Resources", links: [["Notes Corner", "/notes"], ["Free Learning", "/learning"], ["Contact", "/contact"]] },
+  { title: "Resources", links: [["Notes Corner", "/notes"], ["Free Learning", "/learning"], ["Contact", "/contact"], ["Teacher Login", "/teacher/login"]] },
 ];
 
 export function SiteFooter() {
