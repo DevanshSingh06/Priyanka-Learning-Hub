@@ -6,6 +6,10 @@ import galleryImage05 from "../../images/gallery/gallery-05.jpeg";
 import galleryImage06 from "../../images/gallery/gallery-06.jpeg";
 import galleryImage07 from "../../images/gallery/gallery-07.jpeg";
 import galleryImage08 from "../../images/gallery/gallery-08.jpeg";
+import resultsPhoto01 from "../../images/results/results-01.png";
+import resultsPhoto02 from "../../images/results/results-02.jpg";
+import resultsPhoto03 from "../../images/results/results-03.png";
+import resultsPhoto04 from "../../images/results/results-04.png";
 import type { StaticImageData } from "next/image";
 import type { ClassLevel, ResourceType, Subject } from "@/lib/config/content";
 
@@ -53,6 +57,25 @@ export const instagramReels = [
 export const successPlaceholders: { id: string; title: string; description: string; label: string }[] = [];
 
 export const feedbackPlaceholders: { id: string; audience: string; description: string; label: string }[] = [];
+
+export type BoardResult = {
+  id: string;
+  photo: StaticImageData;
+  studentName: string;
+  className: string;
+  board: string;
+  resultType: string;
+  maths: number;
+  sst: number;
+  alt: string;
+};
+
+export const results: BoardResult[] = [
+  { id: "result-01", photo: resultsPhoto01, studentName: "Muskaan Sharma", className: "10th", board: "CBSE", resultType: "Board Result", maths: 96, sst: 100, alt: "Muskaan Sharma, Class 10 CBSE student" },
+  { id: "result-02", photo: resultsPhoto02, studentName: "Reeva", className: "10th", board: "CBSE", resultType: "Board Result", maths: 95, sst: 90, alt: "Reeva, Class 10 CBSE student" },
+  { id: "result-03", photo: resultsPhoto03, studentName: "Shaurya Singla", className: "10th", board: "CBSE", resultType: "Board Result", maths: 85, sst: 80, alt: "Shaurya Singla, Class 10 CBSE student" },
+  { id: "result-04", photo: resultsPhoto04, studentName: "Ekam", className: "10th", board: "CBSE", resultType: "Board Result", maths: 98, sst: 97, alt: "Ekam, Class 10 CBSE student" },
+];
 
 export const galleryCategories = ["All", "Classes", "Events", "Activities", "Achievements"] as const;
 export type GalleryCategory = (typeof galleryCategories)[number];

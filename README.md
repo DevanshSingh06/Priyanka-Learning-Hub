@@ -18,7 +18,7 @@ Create `.env.local` from `.env.example` and configure `NEXT_PUBLIC_SUPABASE_URL`
 - `/classes`: Class 9 and Class 10 learning options
 - `/notes`: Published-resource browsing with search, class, subject, and resource-type filters; private PDFs open through short-lived signed URLs
 - `/learning`: Static YouTube lesson links, not database-backed
-- `/results`: Results and feedback empty state
+- `/results`: Four owner-provided student Board Results
 - `/gallery`: Eight owner-provided photos and an image lightbox
 - `/contact`: Configured contact links and WhatsApp enquiry form
 
@@ -41,8 +41,8 @@ The app uses Supabase browser and server-side SSR clients with the public URL an
 - `lib/config/`: centralized public site settings.
 - `lib/data/`: content models, shared published-resource data access, and remaining static content.
 
-Verified qualifications, experience, subjects, boards, delivery modes, locality, and contact/social links are configured. Results, testimonials, and batch timings remain unpublished. YouTube lesson links use neutral titles where no verified title was supplied.
+Verified qualifications, experience, subjects, boards, delivery modes, locality, and contact/social links are configured. Testimonials and batch timings remain unpublished. YouTube lesson links use neutral titles where no verified title was supplied.
 
 ## Scope
 
-The public pages use the shared site shell and existing styling. The Results page currently shows an empty state, the Gallery displays owner-provided photos, and Free Learning uses static YouTube links. Resource creation, metadata editing, status changes, deletion, and published-resource display are implemented; replacing an existing PDF is not.
+The public pages use the shared site shell and existing styling. The Results page displays four owner-provided student Board Results, the Gallery displays owner-provided photos, and Free Learning uses static YouTube links. Resource creation, metadata editing, status changes, deletion, and published-resource display are implemented; replacing an existing PDF is not.

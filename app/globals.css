@@ -408,6 +408,18 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 .result-placeholder-card p, .feedback-placeholder-card p { margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .result-placeholder-card .placeholder-label, .feedback-placeholder-card .placeholder-label { margin-top: auto; }
 .feedback-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.results-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.result-card { overflow: hidden; border: 1px solid var(--line); background: var(--paper); }
+.result-photo { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #eaf0ec; }
+.result-photo img { object-fit: cover; }
+.result-card-body { padding: 19px; }
+.result-card h3 { margin: 0 0 7px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 400; }
+.result-card-class { margin: 0 0 12px; color: var(--blue); font-size: 11px; font-weight: 700; }
+.result-card-type { margin: 0 0 13px; color: var(--muted); font-size: 11px; }
+.result-card-marks { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin: 0; }
+.result-card-marks > div { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px; border: 1px solid var(--line); background: var(--white); }
+.result-card-marks dt { color: var(--muted); font-size: 11px; }
+.result-card-marks dd { margin: 0; color: var(--ink); font-size: 12px; font-weight: 700; }
 
 .gallery-page-section { background: var(--white); }
 .gallery-page-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -472,7 +484,7 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   .profile-portrait { min-height: 300px; }
   .profile-copy h2 { font-size: 34px; }
   .profile-facts { grid-template-columns: 1fr 1fr; }
-  .approach-grid, .subject-grid, .resource-grid, .feedback-grid { grid-template-columns: 1fr; }
+  .approach-grid, .subject-grid, .resource-grid, .feedback-grid, .results-grid { grid-template-columns: 1fr; }
   .approach-grid article { min-height: 195px; }
   .class-directory-group + .class-directory-group { margin-top: 45px; }
   .class-directory-heading { align-items: flex-start; flex-direction: column; }
