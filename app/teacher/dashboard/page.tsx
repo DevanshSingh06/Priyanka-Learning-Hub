@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import LogoutButton from "./logout-button";
@@ -23,7 +24,10 @@ export default async function TeacherDashboardPage() {
             <span className="section-kicker">Teacher access</span>
             <h1 className={styles.heading} id="teacher-dashboard-title">Teacher Dashboard</h1>
           </div>
-          <LogoutButton />
+          <div className={styles.dashboardActions}>
+            <Link className={`button button-light ${styles.viewWebsite}`} href="/">View Website</Link>
+            <LogoutButton />
+          </div>
         </div>
         <ResourceManager />
       </section>
