@@ -1,3 +1,12 @@
+import galleryImage01 from "../../images/gallery/gallery-01.jpeg";
+import galleryImage02 from "../../images/gallery/gallery-02.jpeg";
+import galleryImage03 from "../../images/gallery/gallery-03.jpeg";
+import galleryImage04 from "../../images/gallery/gallery-04.jpeg";
+import galleryImage05 from "../../images/gallery/gallery-05.jpeg";
+import galleryImage06 from "../../images/gallery/gallery-06.jpeg";
+import galleryImage07 from "../../images/gallery/gallery-07.jpeg";
+import galleryImage08 from "../../images/gallery/gallery-08.jpeg";
+import type { StaticImageData } from "next/image";
 import type { ClassLevel, ResourceType, Subject } from "@/lib/config/content";
 
 export type SubjectResource = {
@@ -48,5 +57,14 @@ export const feedbackPlaceholders: { id: string; audience: string; description: 
 export const galleryCategories = ["All", "Classes", "Events", "Activities", "Achievements"] as const;
 export type GalleryCategory = (typeof galleryCategories)[number];
 
-export type GalleryItem = { id: string; category: Exclude<GalleryCategory, "All">; title: string; imageUrl: string; alt: string };
-export const galleryPlaceholders: GalleryItem[] = [];
+export type GalleryItem = { id: string; category: Exclude<GalleryCategory, "All">; title?: string; imageUrl: StaticImageData; alt: string };
+export const galleryPlaceholders: GalleryItem[] = [
+  { id: "gallery-01", category: "Events", imageUrl: galleryImage01, alt: "Students gathered around a cake during a celebration" },
+  { id: "gallery-02", category: "Activities", imageUrl: galleryImage02, alt: "Students participating in a group activity" },
+  { id: "gallery-03", category: "Events", imageUrl: galleryImage03, alt: "Students and teacher together at an event" },
+  { id: "gallery-04", category: "Events", imageUrl: galleryImage04, alt: "Teacher with students during a gathering" },
+  { id: "gallery-05", category: "Activities", imageUrl: galleryImage05, alt: "Students taking part in a classroom activity" },
+  { id: "gallery-06", category: "Events", imageUrl: galleryImage06, alt: "Students celebrating together" },
+  { id: "gallery-07", category: "Classes", imageUrl: galleryImage07, alt: "Students working together during a class" },
+  { id: "gallery-08", category: "Classes", imageUrl: galleryImage08, alt: "Teacher and students in a classroom" },
+];
