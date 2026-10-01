@@ -83,6 +83,31 @@
   margin: 18px 0 0;
 }
 
+.secondaryAction {
+  display: inline-flex;
+  margin-top: 18px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.notice {
+  margin: 0 0 18px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.formHint {
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
 @media (max-width: 480px) {
   .dashboardHeader {
     flex-direction: column;
