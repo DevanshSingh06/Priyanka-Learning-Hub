@@ -3,13 +3,13 @@ import { siteConfig } from "@/lib/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  ...(siteConfig.url ? { metadataBase: new URL(siteConfig.url) } : {}),
+  metadataBase: new URL("https://priyanka-learning-hub.vercel.app"),
   title: {
-    default: `${siteConfig.name} | Class 9 & 10 Coaching`,
+    default: `${siteConfig.name} | CBSE & ICSE Coaching in Ahmadgarh`,
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Class 9 and Class 10 coaching in Mathematics and Social Science for CBSE and ICSE students in Ahmadgarh, Punjab. Online and offline learning with Priyanka Singla.",
+    "Priyanka Singla teaches Mathematics and Social Science to Classes 9 and 10 students following CBSE and ICSE in Ahmadgarh, Punjab, with online and offline learning.",
   keywords: ["Priyanka Learning Hub", "Class 9 coaching", "Class 10 coaching", "Mathematics", "Social Science", "CBSE", "ICSE", "Ahmadgarh", "Punjab"],
   openGraph: {
     title: siteConfig.name,

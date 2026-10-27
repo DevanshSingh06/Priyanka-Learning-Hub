@@ -4,7 +4,7 @@ import { DemoCallout, PageIntro, PublicPage } from "@/components/layout/public-p
 import { NotesExplorer } from "@/components/public/resource-explorers";
 import { getPublishedResources } from "@/lib/data/published-notes";
 
-export const metadata: Metadata = { title: "Notes Corner", description: "Search the Priyanka Learning Hub notes corner for Class 9 and Class 10 study resources." };
+export const metadata: Metadata = { title: "Notes Corner", description: "Search the Priyanka Learning Hub notes corner for Class 9 and Class 10 study resources.", alternates: { canonical: "/notes" } };
 
 export default async function NotesPage() {
   await connection();

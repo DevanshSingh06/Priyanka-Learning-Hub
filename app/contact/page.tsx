@@ -5,7 +5,7 @@ import { WhatsAppEnquiryForm } from "@/components/public/contact-form";
 import { siteConfig } from "@/lib/config/site";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
-export const metadata: Metadata = { title: "Contact & Free Demo", description: "Contact Priyanka Learning Hub in Ahmadgarh, Punjab, for Class 9 and 10 coaching in Mathematics and Social Science." };
+export const metadata: Metadata = { title: "Contact & Free Demo", description: "Contact Priyanka Learning Hub in Ahmadgarh, Punjab, for Class 9 and 10 coaching in Mathematics and Social Science.", alternates: { canonical: "/contact" } };
 
 function ContactValue({ value, label, href, icon: Icon }: { value: string; label: string; href: string; icon: typeof Phone }) {
   return <div className="contact-detail"><span className="contact-detail-icon"><Icon size={18} /></span><div><span className="contact-detail-label">{label}</span><a href={href}>{value}<ArrowUpRight size={14} /></a></div></div>;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { DemoCallout, EmptyState, PageIntro, PublicPage } from "@/components/layout/public-page";
 import { results } from "@/lib/data/public-content";
 
-export const metadata: Metadata = { title: "Student Results & Feedback", description: "Student achievements and family feedback from Priyanka Learning Hub, shared only when verified and approved." };
+export const metadata: Metadata = { title: "Student Results & Feedback", description: "Student achievements and family feedback from Priyanka Learning Hub, shared only when verified and approved.", alternates: { canonical: "/results" } };
 
 export default function ResultsPage() {
   return <PublicPage>

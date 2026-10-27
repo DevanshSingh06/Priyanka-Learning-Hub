@@ -4,7 +4,7 @@ import { DemoCallout, PageIntro, PublicPage } from "@/components/layout/public-p
 import { LearningExplorer } from "@/components/public/resource-explorers";
 import { siteConfig } from "@/lib/config/site";
 
-export const metadata: Metadata = { title: "Free Learning", description: "Watch free learning lessons from Priyanka Learning Hub on YouTube. Class 9 and Class 10 Mathematics and Social Science support." };
+export const metadata: Metadata = { title: "Free Learning", description: "Watch free learning lessons from Priyanka Learning Hub on YouTube. Class 9 and Class 10 Mathematics and Social Science support.", alternates: { canonical: "/learning" } };
 
 export default function LearningPage() {
   return <PublicPage>

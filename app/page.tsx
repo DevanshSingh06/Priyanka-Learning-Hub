@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,22 @@ import { WhatsAppEnquiryForm } from "@/components/public/contact-form";
 import { siteConfig } from "@/lib/config/site";
 import { getPublishedResources } from "@/lib/data/published-notes";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
+
+export const metadata: Metadata = {
+  description:
+    "Priyanka Singla teaches Mathematics and Social Science to Classes 9 and 10 students following CBSE and ICSE in Ahmadgarh, Punjab, with online and offline learning.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Priyanka Learning Hub",
+  alternateName: "Priyanka Learning Hub Ahmadgarh",
+  url: "https://priyanka-learning-hub.vercel.app/",
+};
 
 export default async function Home() {
   await connection();
@@ -27,12 +44,16 @@ export default async function Home() {
 
   return (
     <PublicPage>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c") }}
+      />
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="eyebrow">{siteConfig.name}</span>
-            <h1>Learn with clarity. <span>Grow with confidence.</span></h1>
-            <p>Classes 9 and 10 in Mathematics and Social Science for CBSE and ICSE, taught online and offline in {siteConfig.location}.</p>
+            <h1>Priyanka Learning Hub <span>with Priyanka Singla</span></h1>
+            <p>Mathematics and Social Science for Classes 9 and 10 following CBSE and ICSE, taught online and offline in {siteConfig.location}.</p>
             <div className="hero-actions">
               <Link className="button" href={demoHref} target={demoUrl ? "_blank" : undefined} rel={demoUrl ? "noreferrer" : undefined}>Book a Free Demo <ArrowRight size={16} /></Link>
               <Link className="button button-light" href="/learning">Explore Free Learning</Link>

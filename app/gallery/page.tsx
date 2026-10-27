@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DemoCallout, PageIntro, PublicPage } from "@/components/layout/public-page";
 import { GalleryGrid } from "@/components/public/gallery-grid";
 
-export const metadata: Metadata = { title: "Gallery", description: "A gallery of classes, events, activities, and achievements from Priyanka Learning Hub." };
+export const metadata: Metadata = { title: "Gallery", description: "A gallery of classes, events, activities, and achievements from Priyanka Learning Hub.", alternates: { canonical: "/gallery" } };
 
 export default function GalleryPage() {
   return <PublicPage>

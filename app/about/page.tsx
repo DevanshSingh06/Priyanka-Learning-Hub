@@ -6,7 +6,7 @@ import teacherPhoto from "@/images/priyanka-singla.png";
 import { DemoCallout, PageIntro, PublicPage } from "@/components/layout/public-page";
 import { siteConfig } from "@/lib/config/site";
 
-export const metadata: Metadata = { title: "About Priyanka Singla", description: "Meet Priyanka Singla, with 18+ years teaching Class 9 and Class 10 Mathematics and Social Science for CBSE and ICSE students in Ahmadgarh, Punjab." };
+export const metadata: Metadata = { title: "About Priyanka Singla", description: "Meet Priyanka Singla, with 18+ years teaching Class 9 and Class 10 Mathematics and Social Science for CBSE and ICSE students in Ahmadgarh, Punjab.", alternates: { canonical: "/about" } };
 
 export default function AboutPage() {
   return <PublicPage>
