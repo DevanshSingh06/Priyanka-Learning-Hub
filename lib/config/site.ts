@@ -17,7 +17,7 @@ export const siteConfig = {
   modes: ["Online", "Offline"],
   experience: "18+ years",
   qualifications: ["M.Sc.", "Diploma in Architecture"],
-  location: "Ahmadgarh, Punjab",
+  location: "Ahmedgarh, Punjab, India",
   feesText: "Contact for fee details.",
   batchAvailabilityText: "Contact us for current batch availability and timings.",
 };

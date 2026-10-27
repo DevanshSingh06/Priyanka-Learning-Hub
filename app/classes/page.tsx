@@ -4,7 +4,7 @@ import { DemoCallout, PageIntro, PublicPage } from "@/components/layout/public-p
 import { siteConfig } from "@/lib/config/site";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
-export const metadata: Metadata = { title: "Class 9 & 10 Coaching", description: "Mathematics and Social Science coaching for Class 9 and Class 10 CBSE and ICSE students in Ahmadgarh, Punjab, online and offline.", alternates: { canonical: "/classes" } };
+export const metadata: Metadata = { title: "Class 9 & 10 Coaching", description: "Mathematics and Social Science coaching for Class 9 and Class 10 CBSE and ICSE students in Ahmedgarh, Punjab, India, online and offline.", alternates: { canonical: "/classes" } };
 
 export default function ClassesPage() {
   return <PublicPage>

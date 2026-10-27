@@ -13,7 +13,7 @@ import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
 export const metadata: Metadata = {
   description:
-    "Priyanka Singla teaches Mathematics and Social Science to Classes 9 and 10 students following CBSE and ICSE in Ahmadgarh, Punjab, with online and offline learning.",
+    "Priyanka Singla teaches Mathematics and Social Science to Classes 9 and 10 students following CBSE and ICSE in Ahmedgarh, Punjab, India, with online and offline learning.",
   alternates: {
     canonical: "/",
   },
@@ -23,7 +23,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Priyanka Learning Hub",
-  alternateName: "Priyanka Learning Hub Ahmadgarh",
+  alternateName: "Priyanka Learning Hub Ahmedgarh",
   url: "https://priyanka-learning-hub.vercel.app/",
 };
 

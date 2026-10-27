@@ -1,6 +1,6 @@
 # Priyanka Learning Hub
 
-Responsive coaching institute website for Class 9 and Class 10 Mathematics and Social Science students, with CBSE and ICSE support in Ahmadgarh, Punjab. Built with Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, hand-written global CSS, and Lucide icons.
+Responsive coaching institute website for Class 9 and Class 10 Mathematics and Social Science students, with CBSE and ICSE support in Ahmedgarh, Punjab, India. Built with Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, hand-written global CSS, and Lucide icons.
 
 ## Run locally
 
